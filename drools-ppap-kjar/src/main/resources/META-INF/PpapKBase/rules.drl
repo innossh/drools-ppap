@@ -1,0 +1,43 @@
+package innossh.drools.ppap;
+
+import innossh.drools.ppap.model.Apple;
+import innossh.drools.ppap.model.Pen;
+import innossh.drools.ppap.model.Pineapple;
+
+declare ApplePen
+end
+
+declare PineapplePen
+end
+
+rule "When you have a pen and an apple"
+when
+    $pen : Pen()
+    $apple : Apple()
+then
+    System.out.println("I have a pen");
+    System.out.println("I have an apple");
+    insert(new ApplePen());
+    System.out.println("Apple-pen!");
+end
+
+rule "When you have a pen and a pineapple"
+when
+    $pen : Pen()
+    $pineapple : Pineapple()
+then
+    System.out.println("I have a pen");
+    System.out.println("I have a pineapple");
+    insert(new PineapplePen());
+    System.out.println("Pineapple-pen!");
+end
+
+rule "When you have an applepen and a pineapplepen"
+when
+    $applePen : ApplePen()
+    $pineapplePen : PineapplePen()
+then
+    System.out.println("Apple-pen...");
+    System.out.println("Pineapple-pen...");
+    System.out.println("Pen-Pineapple-Apple-Pen!");
+end

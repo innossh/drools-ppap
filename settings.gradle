@@ -1,0 +1,4 @@
+rootProject.name = 'drools-ppap'
+
+include "drools-ppap-model"
+include "drools-ppap-kjar"
